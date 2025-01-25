@@ -18,24 +18,47 @@ else if (choice == 1) {
 // getComputerChoice randomly returns strings rock paper or scissors
 
 function getHumanChoice(){
-    let hNum
-    // declare variable
-    let hChoice = prompt("Please choose 'rock', 'paper', or 'scissors'.")
-    // get user choice
-    // hChoice.toLowerCase()=newChoice **not working
-    //solve for upper/lower case issues
-    console.log(hChoice)
+    let hChoice = prompt("Please choose 'rock', 'paper', or 'scissors'.").toLowerCase();
+    // get user choice, case insensitive
+
     if (hChoice == "rock") {
-        hNum = 1
+        return "rock"
     }
     else if (hChoice == "paper") {
-        hNum = 2
+        return "paper"
     } 
     else if (hChoice == "scissors"){
-        hNum = 3
+        return "scissors"
     }
     else{
         alert("Invalid Choice")
     }    
-    console.log(hNum)
+    
     }
+
+    let humanScore = 0
+    let computerScore = 0
+    const humanSelection = getHumanChoice().toLowerCase()
+    const computerSelection = getComputerChoice()
+
+    function playRound(humanChoice, computerChoice) {
+       if (humanChoice == computerChoice) {
+             console.log("It's a tie!")        
+       } else if (humanChoice == "rock" && computerChoice == "paper") {
+            console.log("You lose, paper beats rock")
+       } else if (humanChoice == "rock" && computerChoice == "scissors") {
+            console.log("You win, rock beats scissors")
+        } else if (humanChoice == "paper" && computerChoice == "rock") {
+            console.log("You win, paper beats rock")
+        } else if (humanChoice == "paper" && computerChoice == "scissors") {
+            console.log("You lose, scissors beats rock")
+        } else if (humanChoice == "scissors" && computerChoice == "paper") {
+            console.log("You win, scissors beats paper")
+        } else if (humanChoice == "scissors" && computerChoice == "rock") {
+            console.log("You lose, rock beats scissors")
+
+        }
+    }
+
+    playRound(humanSelection, computerSelection)
+
