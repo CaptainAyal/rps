@@ -1,3 +1,5 @@
+function playGame() {
+    
 
 
 function getComputerChoice(){
@@ -38,8 +40,8 @@ function getHumanChoice(){
 
     let humanScore = 0
     let computerScore = 0
-    const humanSelection = getHumanChoice().toLowerCase()
-    const computerSelection = getComputerChoice()
+    let humanSelection = getHumanChoice()
+    let computerSelection = getComputerChoice()
 
     function playRound(humanChoice, computerChoice) {
        if (humanChoice == computerChoice) {
@@ -59,12 +61,27 @@ function getHumanChoice(){
         } else if (humanChoice == "scissors" && computerChoice == "paper") {
             console.log("You win, scissors beats paper")
             ++humanScore
-        } else (humanChoice == "scissors" && computerChoice == "rock") {
+        } else if(humanChoice == "scissors" && computerChoice == "rock") {
             console.log("You lose, rock beats scissors")
             ++computerScore
         }
         console.log("Your score =" +" "+ humanScore +", My score =" + " "+ computerScore)
     }
 
-    playRound(humanSelection, computerSelection)
+    playRound(humanSelection, computerSelection);
+    humanSelection = getHumanChoice()
+    computerSelection = getComputerChoice()
+    playRound(humanSelection, computerSelection);
+    humanSelection = getHumanChoice()
+    computerSelection = getComputerChoice()
+    playRound(humanSelection, computerSelection);
+    humanSelection = getHumanChoice()
+    computerSelection = getComputerChoice()
+    playRound(humanSelection, computerSelection);
+    humanSelection = getHumanChoice()
+    computerSelection = getComputerChoice()
+    playRound(humanSelection, computerSelection);
+}
+
+playGame()
 
